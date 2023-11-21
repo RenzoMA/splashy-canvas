@@ -1,0 +1,24 @@
+<div class="container px-5 py-2">
+	<div class="row">
+		@switch (gameState()) { @case (GameState.SettingUp) {
+		<app-image-picker
+			class="col-12 col-md-3"
+			[images]="images"
+			(imageSelected)="imageSelected($event)"></app-image-picker>
+		} @case (GameState.Ready) {
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="card p-4 col-md-4 flex-grow-0 bg-white col-xl-5 offset-xl-1">
+					<app-color-picker class="" #colorPicker></app-color-picker>
+				</div>
+
+				<app-paintable-image
+					class="col-md-8 col-xl-5 offset-xl-1"
+					[svgContent]="svgContent"
+					[currentColor]="colorPicker.selectedColor()"></app-paintable-image>
+			</div>
+		</div>
+
+		} }
+	</div>
+</div>

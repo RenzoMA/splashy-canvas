@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row g-3">
+		@for(color of colors; track color) {
+		<div class="col flex-grow-0">
+			<button
+				type="button"
+				class="btn"
+				[ngStyle]="{ 'background-color': color }"
+				[ngClass]="{ 'selected-color': color === selectedColor() }"
+				(click)="selectColor(color)"
+				style="border-radius: 50%; width: 40px; height: 40px"></button>
+		</div>
+		}
+	</div>
+</div>

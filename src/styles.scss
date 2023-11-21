@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Baloo&display=swap");
+
+$primary: #d63384; // Deep Pink
+$secondary: #b39ddb; // Lilac
+$success: #53a548; // Soft Green
+$info: #6cace4; // Softer Blue
+$warning: #ffa500; // Muted Orange
+$danger: #e57373; // Warmer Red
+$light: #f8f8f8; // Light Grey/Off-White for backgrounds
+$dark: #333333; // Dark Grey for text
+
+$font-family-base: "Baloo", sans-serif, cursive;
+
+$carousel-control-color: $primary;
+
+@import "bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+

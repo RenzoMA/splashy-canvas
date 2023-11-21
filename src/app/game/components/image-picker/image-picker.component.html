@@ -1,0 +1,36 @@
+<div
+	id="carouselExampleInterval"
+	class="carousel slide"
+	data-bs-interval="false"
+	(slid.bs.carousel)="onSlide($event)">
+	<div class="carousel-inner">
+		@for(image of images; track image.id; let idx = $index) {
+		<div
+			class="carousel-item p-5"
+			[ngClass]="{
+				active: selectedIndex === idx
+			}">
+			<img src="{{ image.path }}" class="d-block w-100" alt="..." />
+		</div>
+		}
+	</div>
+	<button
+		class="carousel-control-prev"
+		type="button"
+		data-bs-target="#carouselExampleInterval"
+		data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button
+		class="carousel-control-next"
+		type="button"
+		data-bs-target="#carouselExampleInterval"
+		data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+</div>
+<div class="container-fluid d-flex justify-content-center align-items-center">
+	<button type="button" class="btn btn-primary" (click)="selectImage()">Select Image</button>
+</div>
