@@ -26,7 +26,7 @@ export class LandingGameComponent {
 		},
 		{
 			id: 'test2',
-			path: 'assets/pictures/unicorn1.svg',
+			path: 'assets/pictures/unicorn2.svg',
 		},
 	];
 
