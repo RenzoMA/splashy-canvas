@@ -40,6 +40,10 @@ export class LandingGameComponent {
 			id: 'test5',
 			path: 'assets/pictures/dinosaur1.svg',
 		},
+		{
+			id: 'test5',
+			path: 'assets/pictures/princess1.svg',
+		},
 	];
 
 	imageSelected(data: PaintableImage) {

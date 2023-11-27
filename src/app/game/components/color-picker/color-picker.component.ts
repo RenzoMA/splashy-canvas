@@ -22,9 +22,10 @@ export class ColorPickerComponent {
 		`rgb(255, 165, 0, ${this.opacity})`, // Orange
 		`rgb(128, 0, 0, ${this.opacity})`, // Maroon
 		`rgb(230, 190, 255, ${this.opacity})`, // Light Purple (Lavender)
-		`rgb(255, 105, 180, ${this.opacity})`, // Bright Pink
 		`rgb(64, 224, 208, ${this.opacity})`, // Turquoise
 		`rgb(152, 251, 152, ${this.opacity})`, // Pastel Green
+		`rgb(135, 206, 235, ${this.opacity})`, // Light Sky Blue (Day Sky)
+		`rgb(25, 25, 112, ${this.opacity})`, // Midnight Blue (Night Sky)
 	];
 
 	selectedColor = signal(this.colors[0]);
