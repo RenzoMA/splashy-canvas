@@ -28,6 +28,18 @@ export class LandingGameComponent {
 			id: 'test2',
 			path: 'assets/pictures/unicorn2.svg',
 		},
+		{
+			id: 'test3',
+			path: 'assets/pictures/unicorn3.svg',
+		},
+		{
+			id: 'test4',
+			path: 'assets/pictures/unicorn4.svg',
+		},
+		{
+			id: 'test5',
+			path: 'assets/pictures/dinosaur1.svg',
+		},
 	];
 
 	imageSelected(data: PaintableImage) {

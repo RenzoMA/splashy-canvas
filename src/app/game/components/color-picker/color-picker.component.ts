@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 	styleUrl: './color-picker.component.scss',
 })
 export class ColorPickerComponent {
-	opacity = 0.4;
+	opacity = 0.6;
 	colors = [
 		`rgb(255, 0, 0, ${this.opacity})`, // Red
 		`rgb(0, 255, 0, ${this.opacity})`, // Green
