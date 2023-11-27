@@ -12,5 +12,4 @@ import { FooterComponent } from './common/footer/footer.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'splashy-canvas';
 }
