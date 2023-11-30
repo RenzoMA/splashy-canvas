@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './common/header/header.component';
@@ -11,5 +11,6 @@ import { HideInPwaDirective } from './util/hide-in-pwa.directive';
 	imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, HideInPwaDirective],
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}

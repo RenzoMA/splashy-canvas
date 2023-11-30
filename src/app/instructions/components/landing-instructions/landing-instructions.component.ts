@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -8,5 +8,6 @@ import { RouterLink } from '@angular/router';
 	imports: [CommonModule, RouterLink],
 	templateUrl: './landing-instructions.component.html',
 	styleUrl: './landing-instructions.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingInstructionsComponent {}

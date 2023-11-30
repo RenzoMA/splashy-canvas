@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImagePickerComponent } from '../image-picker/image-picker.component';
 import { PaintableImage } from '../models/paintable-image.model';
@@ -13,12 +13,13 @@ import { ColorPickerComponent } from '../color-picker/color-picker.component';
 	imports: [CommonModule, ImagePickerComponent, PaintableImageComponent, ColorPickerComponent],
 	templateUrl: './landing-game.component.html',
 	styleUrl: './landing-game.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingGameComponent {
 	GameState = GameState;
 	gameState = signal(GameState.SettingUp);
 	svgService = inject(SvgService);
-	svgContent: string = '';
+	svgContent = signal('');
 	images: PaintableImage[] = [
 		{
 			id: 'test',
@@ -48,7 +49,7 @@ export class LandingGameComponent {
 
 	imageSelected(data: PaintableImage) {
 		this.svgService.loadSvg(data.path).subscribe(content => {
-			this.svgContent = content;
+			this.svgContent.set(content);
 			this.gameState.set(GameState.Ready);
 		});
 	}

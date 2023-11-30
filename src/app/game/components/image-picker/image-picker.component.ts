@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaintableImage } from '../models/paintable-image.model';
 
@@ -14,22 +14,23 @@ interface CarouselEvent extends Event {
 	imports: [CommonModule],
 	templateUrl: './image-picker.component.html',
 	styleUrl: './image-picker.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImagePickerComponent {
 	@Input() images: PaintableImage[] = [];
 	@Output() imageSelected = new EventEmitter<PaintableImage>();
 
 	changeDetector = inject(ChangeDetectorRef);
-	selectedIndex = 0;
+	selectedIndex = signal(0);
 
 	constructor() {}
 
 	onSlide(event: Event) {
 		const carouselEvent = event as CarouselEvent;
-		this.selectedIndex = carouselEvent.to;
+		this.selectedIndex.set(carouselEvent.to);
 	}
 
 	selectImage() {
-		this.imageSelected.emit({ ...this.images[this.selectedIndex] });
+		this.imageSelected.emit({ ...this.images[this.selectedIndex()] });
 	}
 }

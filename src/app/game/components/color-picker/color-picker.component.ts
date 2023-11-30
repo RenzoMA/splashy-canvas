@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 	imports: [CommonModule],
 	templateUrl: './color-picker.component.html',
 	styleUrl: './color-picker.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ColorPickerComponent {
 	opacity = 0.6;
