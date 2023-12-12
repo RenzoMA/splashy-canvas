@@ -1,11 +1,9 @@
 import {
-	AfterRenderPhase,
 	AfterViewInit,
 	Component,
 	ElementRef,
 	Input,
 	Renderer2,
-	afterNextRender,
 	inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -24,23 +22,21 @@ export class PaintableImageComponent implements AfterViewInit {
 	element = inject(ElementRef);
 	renderer = inject(Renderer2);
 
-	constructor() {
-		afterNextRender(() => {
-			const svgElement = this.element.nativeElement.querySelector('svg');
-			if (svgElement) {
-				this.renderer.setStyle(svgElement, 'max-width', '100%');
-				this.renderer.setStyle(svgElement, 'height', 'auto');
-				const paths = svgElement.querySelectorAll('path');
-				paths.forEach((path: any) => {
-					this.renderer.removeAttribute(path, 'style');
-					this.renderer.setStyle(path, 'fill', 'transparent');
-					this.renderer.listen(path, 'click', () => {
-						this.renderer.setStyle(path, 'fill', this.currentColor);
-					});
-				});
-			}
-		});
-	}
+	constructor() {}
 
-	ngAfterViewInit(): void {}
+	ngAfterViewInit(): void {
+		const svgElement = this.element.nativeElement.querySelector('svg');
+		if (svgElement) {
+			this.renderer.setStyle(svgElement, 'max-width', '100%');
+			this.renderer.setStyle(svgElement, 'height', 'auto');
+			const paths = svgElement.querySelectorAll('path');
+			paths.forEach((path: any) => {
+				this.renderer.removeAttribute(path, 'style');
+				this.renderer.setStyle(path, 'fill', 'transparent');
+				this.renderer.listen(path, 'click', () => {
+					this.renderer.setStyle(path, 'fill', this.currentColor);
+				});
+			});
+		}
+	}
 }
