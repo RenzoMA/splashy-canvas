@@ -53,4 +53,8 @@ export class LandingGameComponent {
 			this.gameState.set(GameState.Ready);
 		});
 	}
+
+	toSettingUp() {
+		this.gameState.set(GameState.SettingUp);
+	}
 }

@@ -1,11 +1,4 @@
-import {
-	AfterViewInit,
-	Component,
-	ElementRef,
-	Input,
-	Renderer2,
-	inject,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, Renderer2, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SafeHtmlPipe } from '../../../util/safe-html.pipe';
 
@@ -35,6 +28,7 @@ export class PaintableImageComponent implements AfterViewInit {
 				this.renderer.setStyle(path, 'fill', 'transparent');
 				this.renderer.listen(path, 'click', () => {
 					this.renderer.setStyle(path, 'fill', this.currentColor);
+					this.renderer.setStyle(path, 'transform', 'translateZ(0)');
 				});
 			});
 		}

@@ -1,4 +1,4 @@
-<div class="container py-2">
+<div class="container">
 	<div class="row gx-0">
 		@switch (gameState()) { @case (GameState.SettingUp) {
 		<app-image-picker
@@ -8,10 +8,17 @@
 		} @case (GameState.Ready) {
 		<div class="container gx-0">
 			<div class="row align-items-center">
-				<app-color-picker #colorPicker></app-color-picker>
+				<div class="container">
+					<div class="row gx-2">
+						<button class="btn btn-primary w-auto" type="button" (click)="toSettingUp()">
+							<i class="bi bi-arrow-left"></i>
+						</button>
+						<app-color-picker class="w-auto" #colorPicker></app-color-picker>
+					</div>
+				</div>
 
 				<app-paintable-image
-				class="col-lg-6 offset-lg-3"
+					class="col-lg-6 offset-lg-3 mt-2 mt-lg-3 px-1 px-md-2"
 					[svgContent]="svgContent()"
 					[currentColor]="colorPicker.selectedColor()"></app-paintable-image>
 			</div>
