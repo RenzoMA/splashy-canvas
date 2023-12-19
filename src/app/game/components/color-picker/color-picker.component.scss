@@ -2,12 +2,10 @@ $offcanvas-vertical-height: 50vh;
 
 :host {
 	text-align: center;
-	
 }
 .selected-color {
-	border: 2px solid var(--bs-gray-600);
+	border: 2px solid var(--bs-gray-800);
 }
-
 
 .custom-offcanvas {
 	--bs-offcanvas-height: fit-content;
